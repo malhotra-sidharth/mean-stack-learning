@@ -1,10 +1,9 @@
-var express = require('express');
-var app = express();
+let express = require('express');
+let app = express();
+let db = require('./data/db');
+db();   // establish connection
 
-app.get('/', sayHello);
-
-function sayHello(req, res){
-    res.send("Hello World");
-}
+let userService = require('./services/user.service.server');
+userService(app);
 
 app.listen(3000);
