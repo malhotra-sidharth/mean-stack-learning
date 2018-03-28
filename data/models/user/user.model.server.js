@@ -29,5 +29,7 @@ function findUserById(userId) {
 
 // find user by type
 function findUserByType(type) {
-    return userModel.find({type: type});
+    return userModel.find({type: type},  function (err) {
+        if (err) return handleError(err);
+    });
 }
