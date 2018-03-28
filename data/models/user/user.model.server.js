@@ -7,12 +7,21 @@ userModel.findAllUsers = findAllUsers;
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 
+// find all users
 function findAllUsers(){
     return userModel.find();
 }
 
+// create user
 function createUser(user) {
     userModel.create(user, function (err) {
+        if (err) return handleError(err);
+    });
+}
+
+// find user by id
+function findUserById(userId) {
+   return userModel.findById(userId, function (err) {
         if (err) return handleError(err);
     });
 }
