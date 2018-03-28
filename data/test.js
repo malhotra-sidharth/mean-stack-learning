@@ -1,10 +1,11 @@
+require('./db')();// establish connection
 let userModel = require('./models/user/user.model.server');
 
 let user = {
     userName: "joe",
     firstName: "jojo",
     lastName: "jojo",
-    type: "student",
+    type: "faculty",
     gpa: 3.2
 };
 

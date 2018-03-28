@@ -6,10 +6,20 @@ module.exports = function (app) {
 
     // find all users
     function findAllUsers(req, res) {
-        userModel.findAllUsers()
-            .then(function (response) {
-                res.json(response);
-            })
+        let type = req.query['type'];
+
+        if(type){
+            userModel.findUserByType(type)
+                .then(function (response) {
+                    res.json(response);
+                })
+        }
+        else{
+            userModel.findAllUsers()
+                .then(function (response) {
+                    res.json(response);
+                })
+        }
     }
 
     // find user by id

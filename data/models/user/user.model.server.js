@@ -6,6 +6,7 @@ module.exports = userModel;
 userModel.findAllUsers = findAllUsers;
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
+userModel.findUserByType = findUserByType;
 
 // find all users
 function findAllUsers(){
@@ -24,4 +25,9 @@ function findUserById(userId) {
    return userModel.findById(userId, function (err) {
         if (err) return handleError(err);
     });
+}
+
+// find user by type
+function findUserByType(type) {
+    return userModel.find({type: type});
 }
